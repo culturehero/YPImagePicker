@@ -103,6 +103,8 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
     
     fileprivate func setupRightBarButton() {
         let rightBarButtonTitle = isFromSelectionVC ? YPConfig.wordings.done : YPConfig.wordings.next
+        
+        print("🤡")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: rightBarButtonTitle,
                                                             style: .done,
                                                             target: self,

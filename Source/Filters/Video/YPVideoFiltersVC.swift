@@ -105,7 +105,7 @@ public class YPVideoFiltersVC: UIViewController, IsMediaFilterVC {
     }
     
     func setupRightBarButtonItem() {
-        let rightBarButtonTitle = "야호"
+        let rightBarButtonTitle = isFromSelectionVC ? YPConfig.wordings.done : YPConfig.wordings.next
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: rightBarButtonTitle,
                                                             style: .done,
                                                             target: self,
