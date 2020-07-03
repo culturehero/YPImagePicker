@@ -85,6 +85,7 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
                                                                target: self,
                                                                action: #selector(cancel))
         }
+        print("🤡0")
         setupRightBarButton()
         
         YPHelper.changeBackButtonIcon(self)
@@ -104,12 +105,14 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
     fileprivate func setupRightBarButton() {
         let rightBarButtonTitle = isFromSelectionVC ? YPConfig.wordings.done : YPConfig.wordings.next
         
-        print("🤡")
+        print("🤡1")
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: rightBarButtonTitle,
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(save))
+        print("🤡2")
         navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
+        print("🤡3")
     }
     
     // MARK: - Methods 🏓
@@ -159,9 +162,11 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
             } else {
                 self.inputPhoto.modifiedImage = nil
             }
+            print("🤡4")
             DispatchQueue.main.async {
                 didSave(YPMediaItem.photo(p: self.inputPhoto))
                 self.setupRightBarButton()
+                print("🤡5")
             }
         }
     }
