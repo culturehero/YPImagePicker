@@ -85,7 +85,6 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
                                                                target: self,
                                                                action: #selector(cancel))
         }
-        print("🤡0")
         setupRightBarButton()
         
         YPHelper.changeBackButtonIcon(self)
@@ -103,16 +102,16 @@ open class YPPhotoFiltersVC: UIViewController, IsMediaFilterVC, UIGestureRecogni
     // MARK: Setup - ⚙️
     
     fileprivate func setupRightBarButton() {
-        let rightBarButtonTitle = isFromSelectionVC ? YPConfig.wordings.done : YPConfig.wordings.next
-        
-        print("🤡1")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: rightBarButtonTitle,
-                                                            style: .done,
-                                                            target: self,
-                                                            action: #selector(save))
-        print("🤡2")
-        navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
-        print("🤡3")
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            let rightBarButtonTitle = self.isFromSelectionVC ? YPConfig.wordings.done : YPConfig.wordings.next
+            
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: rightBarButtonTitle,
+                                                                style: .done,
+                                                                target: self,
+                                                                action: #selector(self.save))
+            self.navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
+        }
     }
     
     // MARK: - Methods 🏓
